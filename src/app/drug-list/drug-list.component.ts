@@ -8,7 +8,6 @@ import { DataFlowService } from '../data-flow.service'; //Connection to Service 
 })
 export class DrugListComponent implements OnInit {
   medData: any = {};
-  //public listFromDB :any = [];
   res :any;
 
   constructor(private _medDataService: DataFlowService, private _getFromDataBase: DataFlowService) { 
@@ -18,10 +17,8 @@ export class DrugListComponent implements OnInit {
   When the component is loaded medColection Array is sent by medicines.component via _medDataService and stored in medData.
   */
   ngOnInit(): void {
-    // this.medData = this._medDataService.getMessage();
-    // console.log(this.medData);
-    // localStorage.setItem('storage', JSON.stringify(this.medData));
-    // console.log(localStorage.getItem('storage'));
+    this.medData = this._medDataService.getMessage();
+    console.log(this.medData);
 
     this._getFromDataBase.retrieve()
       .subscribe(data => {this.res = data;

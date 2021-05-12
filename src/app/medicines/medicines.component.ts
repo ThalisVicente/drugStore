@@ -32,6 +32,8 @@ export class MedicinesComponent implements OnInit {
   Through this constructor we can get the mais services sat on 'data-flow.service.ts':
   modalService -> Allow Modal to pop on the screen when the button "NEW DRUG" is clicked.
   _medDataService -> Enable sharing main Array between the components drug-list and medicines.
+  _sendToDataBase -> Access to Data-Flow Service to allow send data to DB.
+  _getFromDataBase -> Access to Data-Flow Service to allow retrieve data from DB.
 
   */
   constructor(private modalService: NgbModal, private _medDataService: DataFlowService, private _sendToDataBase: DataFlowService, private _getFromDataBase: DataFlowService) { }
@@ -44,10 +46,8 @@ export class MedicinesComponent implements OnInit {
 
   //Event when the ADD button on Modal is clicked 
   onSubmit() {
-    // this.medColection.push(this.medArray);
-    // console.log(this.medColection);
-    // localStorage.setItem('storage', JSON.stringify(this.medArray));
-    // console.log(localStorage.getItem("storage"));
+    this.medColection.push(this.medArray);
+    console.log(this.medColection);
 
     this._sendToDataBase.insert(this.medArray)
     .subscribe(
