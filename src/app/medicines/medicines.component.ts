@@ -15,19 +15,21 @@ export class MedicinesComponent implements OnInit {
   imgURL: any;
   res: any;
 
-  //Only for demostration purpose I'm including 3 pre-registered medicines to be displayed
+  //------- Only for demostration purpose I'm including 3 pre-registered medicines to be displayed, it was used on the first version of this project. I kept this block of code here if some test is needed.------
 
+  
   medColection: any[] = [
     { genName: 'gen1', brandName: 'brand1', strength: 'strength1', dosageFrom: 'Dosage1', img: "../../assets/Picture/drug1.jpg" },
     { genName: 'gen2', brandName: 'brand2', strength: 'strength2', dosageFrom: 'Dosage2', img: "../../assets/Picture/drug2.jpg" },
     { genName: 'gen3', brandName: 'brand3', strength: 'strength3', dosageFrom: 'Dosage3', img: "../../assets/Picture/drug3.jpg" },
   ];
 
+  //----------------------
+  
   //Instance class Drug to a variable medArray
 
   medArray: any = new Drug('', '', '', '', null);
-
-
+ 
   /* 
   Through this constructor we can get the mais services sat on 'data-flow.service.ts':
   modalService -> Allow Modal to pop on the screen when the button "NEW DRUG" is clicked.

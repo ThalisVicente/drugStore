@@ -39,7 +39,7 @@ CREATE TABLE `drugtable` (
 
 LOCK TABLES `drugtable` WRITE;
 /*!40000 ALTER TABLE `drugtable` DISABLE KEYS */;
-INSERT INTO `drugtable` VALUES (1,'gen1','brand1','strength1','Dosage1','../../assets/Picture/drug1.jpg'),(2,'gen2','brand2','strength2','Dosage2','../../assets/Picture/drug2.jpg'),(3,'gen3','brand3','strength3','Dosage3','../../assets/Picture/drug3.jpg'),(4,'gen4','brand4','strength4','Dosage4','../../assets/Picture/drug4.jpg'),(5,'gen5','brand5','strength5','Dosage5','../../assets/Picture/drug5.jpg');
+INSERT INTO `drugtable` VALUES (1,'gen1','brand1','strength1','Dosage1','../../assets/Picture/drug1.jpg'),(2,'gen2','brand2','strength2','Dosage2','../../assets/Picture/drug2.jpg'),(3,'gen3','brand3','strength3','Dosage3','../../assets/Picture/drug3.jpg'),(4,'gen4','brand4','strength4','Dosage4','../../assets/Picture/drug4.jpg'),(5,'gen5','brand5','strength5','Dosage5','../../assets/Picture/drug5.jpg'),(6,'gen6','brand6','strength6','Dosage6','../../assets/Picture/drug6.jpg');
 /*!40000 ALTER TABLE `drugtable` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
