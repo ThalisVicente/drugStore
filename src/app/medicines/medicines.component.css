@@ -1,0 +1,19 @@
+.container{
+    padding-top: 50px;
+}
+
+.imgSize{
+    height: 250px;
+    width: auto;
+}
+
+.row{
+    padding-bottom: 30px;
+}
+
+
+.footer{
+    background: black;
+    color:white;
+    
+}

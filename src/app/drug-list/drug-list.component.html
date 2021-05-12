@@ -1,0 +1,24 @@
+<h1>List of Medicines registered</h1>
+<br>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Gen Namen</th>
+        <th scope="col">Brand Name</th>
+        <th scope="col">Strength</th>
+        <th scope="col">Dosage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of res; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ item.genName }}</td>
+        <td>{{ item.brandName }}</td>
+        <td>{{ item.strength }}</td>
+        <td>{{ item.dosageFrom }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

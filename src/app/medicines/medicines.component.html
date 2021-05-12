@@ -1,0 +1,105 @@
+<!-- 
+    Author:Thalis Vicente Santos
+    Purpose: Main page - display medicines 
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="container">
+    <button class="btn btn-secondary btn-lg" (click)="open(content)">NEW DRUG</button>
+
+    <div class="container">
+        <h1>Medicines Catalog</h1>
+
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!--FOR-LOOP through the response Array received from Server-->
+                <div *ngFor="let item of res; let i = index" class="col mb-2">
+                    <div class="card">
+                        <img src="{{item.img}}" class="img-responsive imgSize">
+                        <div class="card-body caption">
+                            <h4>Register {{i + 1}}</h4>
+                            <h6><strong>Generic Name: </strong>{{item.genName}}</h6>
+                            <h6><strong>Brand Name: </strong>{{item.brandName}}</h6>
+                            <h6><strong>Strength: </strong>{{item.strength}}</h6>
+                            <h6><strong>Usage Form: </strong>{{item.dosageFrom}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--MODAL ADD NEW DRUG-->
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">MEDICINE REGISTER </h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #inputDrugs="ngForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="form-group">
+
+                Generic Name:<input type="text" class="form-control" name="genName" [(ngModel)]="medArray.genName"
+                    required #name="ngModel" [class.is.invalid]="name.invalid && name.touched">
+                <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
+                <br>
+                Brand Name: <input type="text" class="form-control" name="brandName"
+                    [(ngModel)]="medArray.brandName"><br>
+                Strength:<input type="text" class="form-control" name="strength" [(ngModel)]="medArray.strength"><br>
+                Usage Form:<input type="text" class="form-control" name="dosageFrom"
+                    [(ngModel)]="medArray.dosageFrom"><br>
+                <div class="custom-file">
+                    <input type="file" #imageInput class="custom-file-input" id="pic" name="pic"
+                        [(ngModel)]="medArray.img" (change)="onFileSelect($event)">
+                    <label class="custom-file-label" for="profilePicture">Choose file</label>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <button [disabled]="inputDrugs.form.invalid" type="button" class="btn btn-outline-dark"
+            (click)="modal.close('Save click'); onSubmit()">ADD</button>
+    </div>
+
+</ng-template>
+
+<div class="mt-3 pt-3 pb-3 footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-xs-12 about-company">
+                <h3>Pharmacy Services</h3>
+                <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
+                    ante mollis quam tristique convallis </p>
+                <p><a href="#"><i class="fa fa-facebook-square mr-1"></i></a><a href="#"><i
+                            class="fa fa-linkedin-square"></i></a></p>
+            </div>
+            <div class="col-lg-3 col-xs-12 links">
+                <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+                <ul class="m-0 p-0">
+                    <li>- <a href="#">Lorem ipsum</a></li>
+                    <li>- <a href="#">Nam mauris velit</a></li>
+                    <li>- <a href="#">Etiam vitae mauris</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-xs-12 location">
+                <h4 class="mt-lg-0 mt-sm-4">Location</h4>
+                <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
+                <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
+                <p><i class="fa fa-envelope-o mr-3"></i>info@hsdf.com</p>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col copyright">
+                <p class=""><small class="text-white-50">© 2021. All Rights Reserved.</small></p>
+            </div>
+        </div>
+    </div>
+</div>
